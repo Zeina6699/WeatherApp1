@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather/Screens/Search_Page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -6,21 +7,24 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
+      appBar: AppBar(
+        
+        title:const Text("Weather App"),
+        actions: [
+        IconButton(
+          onPressed:(){Navigator.of(context).push(MaterialPageRoute(
+            builder:(context){return SearchPage();}));}, 
+          icon:const Icon( Icons.search))],)
      
-        body:  Container(
+        ,body:  Container(
       
-          decoration: BoxDecoration(
+          decoration:const BoxDecoration(
             gradient: LinearGradient(
               colors: [
               Colors.grey,
-                             
-
-                // اللون الأول
-                    // اللون الثاني
-                Colors.white  // اللون الثالث
+              Colors.white
               ])),
-          child: Center(
+          child:const Center(
             child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
