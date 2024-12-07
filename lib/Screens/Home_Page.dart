@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:weather/Models/Weather_Model.dart';
 import 'package:weather/Screens/Search_Page.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
+  WeatherModel? weatherData;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,8 @@ class HomePage extends StatelessWidget {
             builder:(context){return SearchPage();}));}, 
           icon:const Icon( Icons.search))],)
      
-        ,body:  Container(
+        ,body:weatherData!=null?
+          Container(
       
           decoration:const BoxDecoration(
             gradient: LinearGradient(
@@ -33,7 +36,35 @@ class HomePage extends StatelessWidget {
                 )    ],
                   ),
           ),
-        ),
+        ): Container(
+          color: const Color.fromARGB(255, 253, 181, 72),
+          child: Center(
+            child: Column(
+             
+              children: [
+                   SizedBox(height: 220),
+              Text("Cairo",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 35),),
+              Text("updated: 24-6-2001",style: TextStyle(fontSize: 25)),
+              SizedBox(height: 35),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                Image.asset('assets/images/clear.png'),
+                Text("30",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 35),),
+                Column(children: [
+                  Text("Min:20"),
+                  Text("Max:30")]),
+                ]),
+                SizedBox(height: 5),
+                Text("Sunny",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 35))
+
+                ],)
+                
+            
+            
+          
+          ),
+        )
     );
   }
 }
