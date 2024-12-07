@@ -26,5 +26,10 @@ class WeatherModel{
      weatherStateName:json['condition']['text'];*/
     }
 
+@override
+  String toString() {
+    // TODO: implement toString
+    return "Mintemp=$minTemp   maxtemp=$maxTemp    date=$date";
+  }
 
 }
