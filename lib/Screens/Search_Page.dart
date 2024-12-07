@@ -26,7 +26,7 @@ String? cityName;
                  onSubmitted: (data) {
                   cityName=data;
                   WeatherService service=new WeatherService();
-                  service.getWeather(cityName: cityName!);
+                  service.getWeather(cityName: cityName!); //اخذنا غرض من الصف لنستدعي طريقته
                  },
               ),
             ),
