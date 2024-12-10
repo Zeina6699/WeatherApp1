@@ -1,13 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:weather/Models/Weather_Model.dart';
+import 'package:weather/Providers/Weather_Provider.dart';
 import 'package:weather/Screens/Search_Page.dart';
-
-class HomePage extends StatelessWidget {
+import 'package:provider/provider.dart';
+class HomePage extends StatefulWidget {
   HomePage({super.key});
-  WeatherModel? weatherData;
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  void updateUi(){
+    setState(() {
+      
+    });
+  }
+ // WeatherModel? weatherData;
+WeatherModel? weatherData;
+  @override
   Widget build(BuildContext context) {
+    weatherData=Provider.of<WeatherProvider>(context).weatherData;
     return Scaffold(
       appBar: AppBar(
         
@@ -15,10 +28,12 @@ class HomePage extends StatelessWidget {
         actions: [
         IconButton(
           onPressed:(){Navigator.of(context).push(MaterialPageRoute(
-            builder:(context){return SearchPage();}));}, 
+            builder:(context){return SearchPage(//updateUi: updateUi,
+            );}));}, 
           icon:const Icon( Icons.search))],)
      
-        ,body:weatherData!=null?
+        ,body:
+       weatherData==null?
           Container(
       
           decoration:const BoxDecoration(
@@ -36,7 +51,8 @@ class HomePage extends StatelessWidget {
                 )    ],
                   ),
           ),
-        ): Container(
+        ):
+         Container(
           color: const Color.fromARGB(255, 253, 181, 72),
           child: Center(
             child: Column(
