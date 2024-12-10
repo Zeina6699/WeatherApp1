@@ -61,18 +61,19 @@ WeatherModel? weatherData;
                    SizedBox(height: 220),
               Text(Provider.of<WeatherProvider>(context).cityName!
               ,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 35),),
-              Text("updated:${weatherData!.date.toString()}",style: const TextStyle(fontSize: 25)),
-              SizedBox(height: 35),
+              SizedBox(height:25),
+              Text("updated : ${weatherData!.date.toString()}",style: const TextStyle(fontSize: 25,fontWeight:FontWeight.w700)),
+              SizedBox(height:40),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                Image.asset('assets/images/clear.png'),
+                Image.asset(weatherData!.getImage()),
                 Text("${weatherData!.temp.toInt()}",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 35),),
                 Column(children: [
-                  Text("Min: ${weatherData!.minTemp.toInt()}",style:TextStyle(fontSize: 35)),
-                  Text("Max: ${weatherData!.maxTemp.toInt()}",style:TextStyle(fontSize: 35))]),
+                  Text("Min: ${weatherData!.minTemp.toInt()}",style:TextStyle(fontSize: 20,fontWeight:FontWeight.w500)),
+                  Text("Max: ${weatherData!.maxTemp.toInt()}",style:TextStyle(fontSize: 20,fontWeight:FontWeight.w500))]),
                 ]),
-                SizedBox(height: 5),
+                SizedBox(height: 40),
                 Text(weatherData!.weatherStateName
                    ,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 35))
 
