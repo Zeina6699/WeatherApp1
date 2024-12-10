@@ -49,15 +49,19 @@ String? cityName;
        
 }}
 //WeatherModel? weatherData;*/
+onChanged: (data){
+ cityName=data; 
+},
 onSubmitted: (data) async {
-  if (data.isNotEmpty) {
+      cityName=data;
  //   try {
       WeatherService service = WeatherService();
-      WeatherModel weather = await service.getWeather(cityName: data);
+      WeatherModel? weather = await service.getWeather(cityName:cityName!);
       Provider.of<WeatherProvider>(context, listen: false).weatherData = weather;
-
+      Provider.of<WeatherProvider>(context, listen: false).cityName = cityName;
       // العودة للصفحة السابقة
       Navigator.pop(context);
+      updateUi!();
   //  } catch (e) {
       // التعامل مع الأخطاء هنا
     /*  ScaffoldMessenger.of(context).showSnackBar(
@@ -69,4 +73,4 @@ onSubmitted: (data) async {
     //  SnackBar(content: Text("Please enter a city name")),
   //  );
 //  }*/
-}))));}}
+))));}}

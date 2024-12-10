@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 class WeatherProvider extends ChangeNotifier{
   WeatherModel? weatherData;
+  String? cityName;
 
 
   set setWeatherData(WeatherModel? weather){
