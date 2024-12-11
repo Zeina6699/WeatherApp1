@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class WeatherModel{
    String date;
    double temp;
@@ -32,68 +34,39 @@ class WeatherModel{
     return "Mintemp=$minTemp   maxtemp=$maxTemp    date=$date";
   }
   String getImage(){
-    switch(weatherStateName){
-case 'Partly cloudy' : return "assets/images/cloudy.png";
-case 'Cloudy' : return "assets/images/clody.png";
-case 'Overcast' : return "assets/images/clody.png";
-case 'Mist' : return "assets/images/ccc.jpg";
-case 'Freezing fog' : return "assets/images/ccc.jpg";
-case 'Fog' : return "assets/images/ccc.jpg";
-case 'Freezing fog' : return "assets/images/ccc.jpg";
-case 'Patchy rain possible' : return "assets/images/rainy.png";
-case 'Patchy snow possible' : return "assets/images/snow.png";
-case 'Blizzard' : return "assets/images/snow.png";
-case 'Heavy snow' : return "assets/images/snow.png";
-case 'Patchy heavy snow' : return "assets/images/snow.png";
-case 'Moderate snow' : return "assets/images/snow.png";
-case 'Patchy moderate snow' : return "assets/images/snow.png";
-case 'Patchy light snow' : return "assets/images/snow.png";
-case 'Moderate or heavy sleet' : return "assets/images/snow.png";
-case 'Light sleet' : return "assets/images/snow.png";
-case 'Light snow' : return "assets/images/snow.png";
-case 'Patchy sleet possible' : return "assets/images/snow.png";
-case 'Ice pellets' : return "assets/images/snow.png";
-case 'Patchy light snow with thunder' : return "assets/images/snow.png";
-case 'Moderate or heavy snow with thunder' :return "assets/images/snow.png";
-case 'Blowing snow' :return "assets/images/snow.png";
-case 'Moderate or heavy snow showers' :return "assets/images/snow.png";
-case 'Light snow showers' :return "assets/images/snow.png";
-case 'Moderate or heavy sleet showers' :return "assets/images/rainy.png";
-case 'Light sleet showers' :return "assets/images/rainy.png";
-case 'Torrential rain shower' :return "assets/images/rainy.png";
-case 'Moderate or heavy rain shower' :return "assets/images/rainy.png";
-case 'Light rain shower' :return "assets/images/rainy.png";
-case 'Thundery outbreaks possible' : return "assets/images/thunderstorm.png";
-case 'Clear' :return "assets/images/clear.png";
-case 'Sunny' :return "assets/images/clear.png";
-case 'Light Cloud' :return "assets/images/clear.png" ;
-case 'Light freezing rain' :return "assets/images/rainy.png";
-case 'Heavy rain at times' :return "assets/images/rainy.png";
-case 'Heavy rain' :return "assets/images/rainy.png";
-case 'Light rain' :return "assets/images/rainy.png";
-case 'Moderate rain at times' :return "assets/images/rainy.png";
-case 'Patchy light drizzle' :return "assets/images/rainy.png";
-case 'Light drizzle' :return "assets/images/rainy.png";
-case 'Freezing drizzle' :return "assets/images/rainy.png";
-case 'Heavy freezing drizzle' :return "assets/images/rainy.png";
-case 'Patchy light rain' :return "assets/images/rainy.png";
-case 'Moderate rain' :return "assets/images/rainy.png";
-case 'Moderate or heavy freezing rain' :return "assets/images/rainy.png";
-case 'Moderate or heavy showers of ice pellets' :return "assets/images/snow.png";
-case 'Light showers of ice pellets' :return"assets/images/snow.png";
-case 'Heavy Cloud' :return "assets/images/cloudy.png";
-case 'Light Rain' :return "'assets/images/rainy.png";
-case 'Moderate or heavy rain with thunder' :return "'assets/images/rainy.png";
-case 'Heavy Rain ' :return "assets/images/rainy.png";
-case 'Patchy light rain with thunder' :return "assets/images/rainy.png";
-default:return "assets/images/clear.png";
+  
+if(weatherStateName=="Partly cloudy"||weatherStateName=='Cloudy'||weatherStateName=='Overcast'||weatherStateName=='Heavy Cloud') 
+  return "assets/images/cloudy.png";
+ else if(weatherStateName=='Mist'||weatherStateName=='Freezing fog'||weatherStateName=='Fog') return "assets/images/ccc.jpg"; 
+else if(weatherStateName=='Moderate or heavy showers of ice pellets'||weatherStateName=='Light showers of ice pellets'||
+weatherStateName=='Light snow showers'||weatherStateName=='Moderate rain'||weatherStateName=='Moderate or heavy snow showers'||weatherStateName=='Blowing snow'||weatherStateName=='Moderate or heavy snow with thunder'||weatherStateName=='Patchy light snow with thunder'||weatherStateName=='Ice pellets'||weatherStateName=='Patchy sleet possible'||weatherStateName=='Light snow'||weatherStateName=='Light sleet'||weatherStateName=='Moderate or heavy sleet'||weatherStateName=='Patchy moderate snow'||weatherStateName=='Moderate snow'||weatherStateName=='Patchy heavy snow'||weatherStateName=='Patchy light snow'||weatherStateName=='Patchy snow possible'||weatherStateName=='Heavy snow'||weatherStateName=='Blizzard')
+return "assets/images/snow.png"; 
+else if(weatherStateName=='Light drizzle'||weatherStateName=="Patchy rain nearby"||weatherStateName=='Light Rain'||weatherStateName=='Patchy light rain'||weatherStateName=='Moderate or heavy freezing rain'||
+weatherStateName=='Patchy light rain with thunder'||weatherStateName=='Heavy Rain '||weatherStateName=='Moderate or heavy rain with thunder'||
+weatherStateName=='Light rain shower'||weatherStateName=='Moderate or heavy rain shower'||weatherStateName=='Torrential rain shower'||weatherStateName=='Light sleet showers'||weatherStateName=='Patchy rain possible'||weatherStateName=='Moderate or heavy sleet showers' ||weatherStateName=='Light sleet showers'
+||weatherStateName=='Light freezing rain'||weatherStateName=='Heavy rain at times'||weatherStateName=='Heavy rain'||weatherStateName=='Moderate rain at times'||weatherStateName=='Light rain'||weatherStateName== 'Patchy light drizzle'
+||weatherStateName=='Heavy freezing drizzle'||weatherStateName=='Freezing drizzle'||weatherStateName=='Light drizzle')return "assets/images/rainy.png"; 
+else if(weatherStateName=='Clear'||weatherStateName=='Light Cloud'||weatherStateName=="Sunny")return  "assets/images/clear.png";
+else return "assets/images/thunderstorm.png";  
+}
 
 
-
-
-
+Color getThemeColor(){
+if(weatherStateName=="Partly cloudy"||weatherStateName=='Cloudy'||weatherStateName=='Overcast'||weatherStateName=='Heavy Cloud') 
+  return Colors.blueGrey;
+ else if(weatherStateName=='Mist'||weatherStateName=='Freezing fog'||weatherStateName=='Fog')
+  return Colors.blueGrey;
+else if(weatherStateName=='Moderate or heavy showers of ice pellets'||weatherStateName=='Light showers of ice pellets'||
+weatherStateName=='Light snow showers'||weatherStateName=='Moderate rain'||weatherStateName=='Moderate or heavy snow showers'||weatherStateName=='Blowing snow'||weatherStateName=='Moderate or heavy snow with thunder'||weatherStateName=='Patchy light snow with thunder'||weatherStateName=='Ice pellets'||weatherStateName=='Patchy sleet possible'||weatherStateName=='Light snow'||weatherStateName=='Light sleet'||weatherStateName=='Moderate or heavy sleet'||weatherStateName=='Patchy moderate snow'||weatherStateName=='Moderate snow'||weatherStateName=='Patchy heavy snow'||weatherStateName=='Patchy light snow'||weatherStateName=='Patchy snow possible'||weatherStateName=='Heavy snow'||weatherStateName=='Blizzard')
+return const Color.fromARGB(255, 33, 243, 191);
+else if(weatherStateName=='Light Rain'||weatherStateName=='Patchy light rain'||weatherStateName=='Moderate or heavy freezing rain'||
+weatherStateName=='Patchy light rain with thunder'||weatherStateName=='Heavy Rain '||weatherStateName=='Moderate or heavy rain with thunder'||
+weatherStateName=='Light rain shower'||weatherStateName=='Moderate or heavy rain shower'||weatherStateName=='Torrential rain shower'||weatherStateName=='Light sleet showers'||weatherStateName=='Patchy rain possible'||weatherStateName=='Moderate or heavy sleet showers' ||weatherStateName=='Light sleet showers'
+||weatherStateName=='Light freezing rain'||weatherStateName=='Heavy rain at times'||weatherStateName=='Heavy rain'||weatherStateName=='Moderate rain at times'||weatherStateName=='Light rain'||weatherStateName== 'Patchy light drizzle'
+||weatherStateName=='Heavy freezing drizzle'||weatherStateName=='Freezing drizzle'||weatherStateName=='Light drizzle'||weatherStateName=="Patchy rain nearby")
+  return Colors.blue;
+else if(weatherStateName=='Clear'||weatherStateName=='Light Cloud'||weatherStateName=="Sunny")
+return  Colors.yellow;
+else return Colors.blueGrey;  
+}
     }
-   
-    }
-  }
-

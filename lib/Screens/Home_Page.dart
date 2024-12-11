@@ -22,6 +22,8 @@ WeatherModel? weatherData;
   Widget build(BuildContext context) {
     weatherData=Provider.of<WeatherProvider>(context).weatherData;
     return Scaffold(
+   backgroundColor: Provider.of<WeatherProvider>(context).weatherData==null?Colors.blue: Provider.of<WeatherProvider>(context).weatherData!.getThemeColor()
+,
       appBar: AppBar(
         
         title:const Text("Weather App"),
@@ -31,8 +33,9 @@ WeatherModel? weatherData;
             builder:(context){return SearchPage(//updateUi: updateUi,
             );}));}, 
           icon:const Icon( Icons.search))],)
-     
+        
         ,body:
+        
        weatherData==null?
           Container(
       
@@ -53,7 +56,6 @@ WeatherModel? weatherData;
           ),
         ):
          Container(
-          color: const Color.fromARGB(255, 253, 181, 72),
           child: Center(
             child: Column(
              
