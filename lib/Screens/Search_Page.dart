@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:weather/Models/Weather_Model.dart';
 import 'package:weather/Providers/Weather_Provider.dart';
@@ -16,10 +18,11 @@ String? cityName;
         body:Container(
           decoration:const BoxDecoration(
           gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
             colors: [
-            Color.fromARGB(255, 205, 238, 59),
-           Colors.lightBlue,
-            Color.fromARGB(255, 255, 141, 141)
+           Colors.grey,
+          Colors.white
         
 
           ])),

@@ -22,8 +22,6 @@ WeatherModel? weatherData;
   Widget build(BuildContext context) {
     weatherData=Provider.of<WeatherProvider>(context).weatherData;
     return Scaffold(
-   backgroundColor: Provider.of<WeatherProvider>(context).weatherData==null?Colors.blue: Provider.of<WeatherProvider>(context).weatherData!.getThemeColor()
-,
       appBar: AppBar(
         
         title:const Text("Weather App"),
@@ -56,6 +54,15 @@ WeatherModel? weatherData;
           ),
         ):
          Container(
+         decoration: BoxDecoration(
+          gradient: LinearGradient
+          (
+            begin:Alignment.topCenter,
+            end:Alignment.bottomCenter,
+            colors: [
+         weatherData!.getThemeColor(),
+         Colors.white 
+          ])),
           child: Center(
             child: Column(
              

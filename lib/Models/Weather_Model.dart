@@ -33,8 +33,7 @@ class WeatherModel{
     // TODO: implement toString
     return "Mintemp=$minTemp   maxtemp=$maxTemp    date=$date";
   }
-  String getImage(){
-  
+  String getImage(){ 
 if(weatherStateName=="Partly cloudy"||weatherStateName=='Cloudy'||weatherStateName=='Overcast'||weatherStateName=='Heavy Cloud') 
   return "assets/images/cloudy.png";
  else if(weatherStateName=='Mist'||weatherStateName=='Freezing fog'||weatherStateName=='Fog') return "assets/images/ccc.jpg"; 
